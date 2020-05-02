@@ -23,86 +23,216 @@
     <!-- Timeblocks go here -->
     <div class="row time-block">
       <div class="col-sm-1 hour">8 AM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="eight" data-identifier="8" placeholder="Start Plan Here"></textarea>
+      </div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">9 AM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="nine" data-identifier="9" placeholder="Start Plan Here"></textarea>
+      </div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">10 AM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="ten" data-identifier="10" placeholder="Start Plan Here"></textarea>
+      </div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">11 AM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="eleven" data-identifier="11"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">12 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="twelve" data-identifier="12"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">1 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="thirteen" data-identifier="13"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">2 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="fourteen" data-identifier="14"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">3 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="fifteen" data-identifier="15"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">4 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="sixteen" data-identifier="16"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">5 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="seventeen" data-identifier="17"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div class="row time-block">
       <div class="col-sm-1 hour">6 PM</div>
-      <div class="col-sm-10"><textarea placeholder="Start Plan Here"></textarea></div>
+      <div class="col-sm-10"><textarea class="" id="eighteen" data-identifier="18"
+          placeholder="Start Plan Here"></textarea></div>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="moment.js"></script>
   <script>
     $(document).ready(function () {
-      
-    var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
-    $("#currentDay").append(currentTime);
 
+      var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+      $("#currentDay").append(currentTime);
 
+      var eight = $("#eight");
+      var eightData = eight.data("identifier");
 
+      var nine = $("#nine");
+      var nineData = nine.data("identifier");
 
-  $(".saveBtn").click(function() {
-    alert("Button Clicked");
-  })
+      var ten = $("#ten");
+      var tenData = ten.data("identifier");
+
+      var eleven = $("#eleven");
+      var elevenData = eleven.data("identifier");
+
+      var twelve = $("#twelve");
+      var twelveData = twelve.data("identifier");
+
+      var thirteen = $("#thirteen");
+      var thirteenData = thirteen.data("identifier");
+
+      var fourteen = $("#fourteen");
+      var fourteenData = fourteen.data("identifier");
+
+      var fifteen = $("#fifteen");
+      var fifteenData = fifteen.data("identifier");
+
+      var sixteen = $("#sixteen");
+      var sixteenData = sixteen.data("identifier");
+
+      var seventeen = $("#seventeen");
+      var seventeenData = seventeen.data("identifier");
+
+      var eighteen = $("#eighteen");
+      var eighteenData = eighteen.data("identifier");
+
+      if (eightData < moment().hour()) {
+        eight.addClass("past");
+      } else if (eightData > moment().hour()) {
+        eight.addClass("future");
+      } else if (eightData == moment().hour()) {
+        eight.addClass("future");
+      }
+
+      if (nineData < moment().hour()) {
+        nine.addClass("past");
+      } else if (nineData > moment().hour()) {
+        nine.addClass("future");
+      } else if (nineData == moment().hour()) {
+        nine.addClass("future");
+      }
+
+      if (tenData < moment().hour()) {
+        ten.addClass("past");
+      } else if (tenData > moment().hour()) {
+        ten.addClass("future");
+      } else if (tenData == moment().hour()) {
+        ten.addClass("future");
+      }
+
+      if (elevenData < moment().hour()) {
+        eleven.addClass("past");
+      } else if (elevenData > moment().hour()) {
+        eleven.addClass("future");
+      } else if (elevenData == moment().hour()) {
+        eleven.addClass("future");
+      }
+
+      if (twelveData < moment().hour()) {
+        twelve.addClass("past");
+      } else if (twelveData > moment().hour()) {
+        twelve.addClass("future");
+      } else if (twelveData == moment().hour()) {
+        twelve.addClass("future");
+      }
+
+      if (thirteenData < moment().hour()) {
+        thirteen.addClass("past");
+      } else if (thirteenData > moment().hour()) {
+        thirteen.addClass("future");
+      } else if (thirteenData == moment().hour()) {
+        thirteen.addClass("future");
+      }
+
+      if (fourteenData < moment().hour()) {
+        fourteen.addClass("past");
+      } else if (fourteenData > moment().hour()) {
+        fourteen.addClass("future");
+      } else if (fourteenData == moment().hour()) {
+        fourteen.addClass("future");
+      }
+
+      if (fifteenData < moment().hour()) {
+        fifteen.addClass("past");
+      } else if (fifteenData > moment().hour()) {
+        fifteen.addClass("future");
+      } else if (fifteenData == moment().hour()) {
+        fifteen.addClass("future");
+      }
+
+      if (sixteenData < moment().hour()) {
+        sixteen.addClass("past");
+      } else if (sixteenData > moment().hour()) {
+        sixteen.addClass("future");
+      } else if (sixteenData == moment().hour()) {
+        sixteen.addClass("future");
+      }
+
+      if (seventeenData < moment().hour()) {
+        seventeen.addClass("past");
+      } else if (seventeenData > moment().hour()) {
+        seventeen.addClass("future");
+      } else if (seventeenData == moment().hour()) {
+        seventeen.addClass("future");
+      }
+
+      if (eighteenData < moment().hour()) {
+        eighteen.addClass("past");
+      } else if (eighteenData > moment().hour()) {
+        eighteen.addClass("future");
+      } else if (eighteenData == moment().hour()) {
+        eighteen.addClass("future");
+      }
+
+      $(".saveBtn").click(function () {
+        alert("Button Clicked");
+      })
+
+      // Create function that saves the info to local storage onclick
 
 
     });
