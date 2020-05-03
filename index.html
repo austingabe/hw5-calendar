@@ -17,85 +17,87 @@
   <header class="jumbotron">
     <h1 class="display-3">Work Day Scheduler</h1>
     <p class="lead">A simple calendar app for scheduling your work day</p>
+    <!-- Paragraph element to display current time, dynamically shown with moment.js -->
     <p id="currentDay" class="lead">Currently </p>
   </header>
   <div class="container">
-
+    <!-- Each timeblock utilizes Bootstrap container/row/column formatting -->
     <div id="eightam" class="row time-block">
       <div class="col-sm-1 hour">8 AM</div>
+      <!-- Data-identifier in each timeblock used to compare to the current hour in order to generate dynamically-determined past, present, and future background colors for textarea -->
       <textarea class="description col-sm-10 plans" id="eight" data-identifier="8"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn8"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="nineam" class="row time-block">
       <div class="col-sm-1 hour">9 AM</div>
       <textarea class="description col-sm-10 plans" id="nine" data-identifier="9"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn9"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="tenam" class="row time-block">
       <div class="col-sm-1 hour">10 AM</div>
       <textarea class="description col-sm-10 plans" id="ten" data-identifier="10"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn10"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="elevenam" class="row time-block">
       <div class="col-sm-1 hour">11 AM</div>
       <textarea class="description col-sm-10 plans" id="eleven" data-identifier="11"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn11"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="twelvepm" class="row time-block">
       <div class="col-sm-1 hour">12 PM</div>
       <textarea class="description col-sm-10 plans" id="twelve" data-identifier="12"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn12"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="onepm" class="row time-block">
       <div class="col-sm-1 hour">1 PM</div>
       <textarea class="description col-sm-10 plans" id="thirteen" data-identifier="13"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn13"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="twopm" class="row time-block">
       <div class="col-sm-1 hour">2 PM</div>
       <textarea class="description col-sm-10 plans" id="fourteen" data-identifier="14"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn14"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="threepm" class="row time-block">
       <div class="col-sm-1 hour">3 PM</div>
       <textarea class="description col-sm-10 plans" id="fifteen" data-identifier="15"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn15"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="fourpm" class="row time-block">
       <div class="col-sm-1 hour">4 PM</div>
       <textarea class="description col-sm-10 plans" id="sixteen" data-identifier="16"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn16"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="fivepm" class="row time-block">
       <div class="col-sm-1 hour">5 PM</div>
       <textarea class="description col-sm-10 plans" id="seventeen" data-identifier="17"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn17"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
 
     <div id="sixpm" class="row time-block">
       <div class="col-sm-1 hour">6 PM</div>
       <textarea class="description col-sm-10 plans" id="eighteen" data-identifier="18"
         placeholder="Start Plan Here"></textarea>
-      <button class="col-sm-1 saveBtn" id="btn18"><i class="fas fa-save"></i></button>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
   </div>
 
@@ -103,10 +105,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script>
     $(document).ready(function () {
-
+      //To show current time at top of the page
       var currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
       $("#currentDay").append(currentTime);
 
+      //Variables defined in order to compare to current time for dynamically altered textarea background color
       var eight = $("#eight");
       var eightData = eight.data("identifier");
 
@@ -140,24 +143,7 @@
       var eighteen = $("#eighteen");
       var eighteenData = eighteen.data("identifier");
 
-      $(".saveBtn").click(function () {
-        var timeBlock = $(this).parent().attr("id");
-        var writtenPlans = $(this).siblings(".plans").val();
-        localStorage.setItem(timeBlock, writtenPlans);
-      })
-
-      $("#eightam .plans").val(localStorage.getItem("eightam"));
-      $("#nineam .plans").val(localStorage.getItem("nineam"));
-      $("#tenam .plans").val(localStorage.getItem("tenam"));
-      $("#elevenam .plans").val(localStorage.getItem("elevenam"));
-      $("#twelvepm .plans").val(localStorage.getItem("twelvepm"));
-      $("#onepm .plans").val(localStorage.getItem("onepm"));
-      $("#twopm .plans").val(localStorage.getItem("twopm"));
-      $("#threepm .plans").val(localStorage.getItem("threepm"));
-      $("#fourpm .plans").val(localStorage.getItem("fourpm"));
-      $("#fivepm .plans").val(localStorage.getItem("fivepm"));
-      $("#sixpm .plans").val(localStorage.getItem("sixpm"));
-
+      //If, else if statements to append the appropriate class for textarea background color
       if (eightData < moment().hour()) {
         eight.addClass("past");
       } else if (eightData > moment().hour()) {
@@ -245,6 +231,26 @@
       } else if (eighteenData == moment().hour()) {
         eighteen.addClass("present");
       }
+
+      //Click event taking what is written in the textarea and setting it in local storage
+      $(".saveBtn").click(function () {
+        var timeBlock = $(this).parent().attr("id");
+        var writtenPlans = $(this).siblings(".plans").val();
+        localStorage.setItem(timeBlock, writtenPlans);
+      })
+
+      //Value functions getting the values from local storage to show in textarea even upon refresh until the text is altered
+      $("#eightam .plans").val(localStorage.getItem("eightam"));
+      $("#nineam .plans").val(localStorage.getItem("nineam"));
+      $("#tenam .plans").val(localStorage.getItem("tenam"));
+      $("#elevenam .plans").val(localStorage.getItem("elevenam"));
+      $("#twelvepm .plans").val(localStorage.getItem("twelvepm"));
+      $("#onepm .plans").val(localStorage.getItem("onepm"));
+      $("#twopm .plans").val(localStorage.getItem("twopm"));
+      $("#threepm .plans").val(localStorage.getItem("threepm"));
+      $("#fourpm .plans").val(localStorage.getItem("fourpm"));
+      $("#fivepm .plans").val(localStorage.getItem("fivepm"));
+      $("#sixpm .plans").val(localStorage.getItem("sixpm"));
     });
   </script>
 </body>
