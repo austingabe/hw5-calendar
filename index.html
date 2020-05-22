@@ -22,9 +22,23 @@
   </header>
   <div class="container">
     <!-- Each timeblock utilizes Bootstrap container/row/column formatting -->
+    <div id="sixam" class="row time-block">
+      <div class="col-sm-1 hour">6 AM</div>
+      <!-- Data-identifier in each timeblock used to compare to the current hour in order to generate dynamically-determined past, present, and future background colors for textarea -->
+      <textarea class="description col-sm-10 plans" id="six" data-identifier="6"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
+    <div id="sevenam" class="row time-block">
+      <div class="col-sm-1 hour">7 AM</div>
+      <textarea class="description col-sm-10 plans" id="seven" data-identifier="7"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
     <div id="eightam" class="row time-block">
       <div class="col-sm-1 hour">8 AM</div>
-      <!-- Data-identifier in each timeblock used to compare to the current hour in order to generate dynamically-determined past, present, and future background colors for textarea -->
       <textarea class="description col-sm-10 plans" id="eight" data-identifier="8"
         placeholder="Start Plan Here"></textarea>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
@@ -99,6 +113,48 @@
         placeholder="Start Plan Here"></textarea>
       <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
     </div>
+
+    <div id="sevenpm" class="row time-block">
+      <div class="col-sm-1 hour">7 PM</div>
+      <textarea class="description col-sm-10 plans" id="nineteen" data-identifier="19"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
+    <div id="eightpm" class="row time-block">
+      <div class="col-sm-1 hour">8 PM</div>
+      <textarea class="description col-sm-10 plans" id="twenty" data-identifier="20"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
+    <div id="ninepm" class="row time-block">
+      <div class="col-sm-1 hour">9 PM</div>
+      <textarea class="description col-sm-10 plans" id="twentyone" data-identifier="21"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
+    <div id="tenpm" class="row time-block">
+      <div class="col-sm-1 hour">10 PM</div>
+      <textarea class="description col-sm-10 plans" id="twentytwo" data-identifier="22"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
+    <div id="elevenpm" class="row time-block">
+      <div class="col-sm-1 hour">11 PM</div>
+      <textarea class="description col-sm-10 plans" id="twentythree" data-identifier="23"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
+
+    <div id="twelveam" class="row time-block">
+      <div class="col-sm-1 hour">12 AM</div>
+      <textarea class="description col-sm-10 plans" id="zero" data-identifier="0"
+        placeholder="Start Plan Here"></textarea>
+      <button class="col-sm-1 saveBtn"><i class="fas fa-save"></i></button>
+    </div>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -110,6 +166,12 @@
       $("#currentDay").append(currentTime);
 
       //Variables defined in order to compare to current time for dynamically altered textarea background color
+      var six = $("#six");
+      var sixData = six.data("identifier");
+
+      var seven = $("#seven");
+      var sevenData = seven.data("identifier");
+
       var eight = $("#eight");
       var eightData = eight.data("identifier");
 
@@ -143,7 +205,41 @@
       var eighteen = $("#eighteen");
       var eighteenData = eighteen.data("identifier");
 
+      var nineteen = $("#nineteen");
+      var nineteenData = nineteen.data("identifier");
+
+      var twenty = $("#twenty");
+      var twentyData = twenty.data("identifier");
+
+      var twentyone = $("#twentyone");
+      var twentyoneData = twentyone.data("identifier");
+
+      var twentytwo = $("#twentytwo");
+      var twentytwoData = twentytwo.data("identifier");
+
+      var twentythree = $("#twentythree");
+      var twentythreeData = twentythree.data("identifier");
+
+      var zero = $("#zero");
+      var zeroData = zero.data("identifier");
+
       //If, else if statements to append the appropriate class for textarea background color
+      if (sixData < moment().hour()) {
+        six.addClass("past");
+      } else if (sixData > moment().hour()) {
+        six.addClass("future");
+      } else if (sixData == moment().hour()) {
+        six.addClass("present");
+      }
+
+      if (sevenData < moment().hour()) {
+        seven.addClass("past");
+      } else if (sevenData > moment().hour()) {
+        seven.addClass("future");
+      } else if (sevenData == moment().hour()) {
+        seven.addClass("present");
+      }
+
       if (eightData < moment().hour()) {
         eight.addClass("past");
       } else if (eightData > moment().hour()) {
@@ -232,6 +328,54 @@
         eighteen.addClass("present");
       }
 
+      if (nineteenData < moment().hour()) {
+        nineteen.addClass("past");
+      } else if (nineteenData > moment().hour()) {
+        nineteen.addClass("future");
+      } else if (nineteenData == moment().hour()) {
+        nineteen.addClass("present");
+      }
+
+      if (twentyData < moment().hour()) {
+        twenty.addClass("past");
+      } else if (twentyData > moment().hour()) {
+        twenty.addClass("future");
+      } else if (twentyData == moment().hour()) {
+        twenty.addClass("present");
+      }
+
+      if (twentyoneData < moment().hour()) {
+        twentyone.addClass("past");
+      } else if (twentyoneData > moment().hour()) {
+        twentyone.addClass("future");
+      } else if (twentyoneData == moment().hour()) {
+        twentyone.addClass("present");
+      }
+
+      if (twentytwoData < moment().hour()) {
+        twentytwo.addClass("past");
+      } else if (twentytwoData > moment().hour()) {
+        twentytwo.addClass("future");
+      } else if (twentytwoData == moment().hour()) {
+        twentytwo.addClass("present");
+      }
+
+      if (twentythreeData < moment().hour()) {
+        twentythree.addClass("past");
+      } else if (twentythreeData > moment().hour()) {
+        twentythree.addClass("future");
+      } else if (twentythreeData == moment().hour()) {
+        twentythree.addClass("present");
+      }
+
+      if (zeroData < moment().hour()) {
+        zero.addClass("past");
+      } else if (zeroData > moment().hour()) {
+        zero.addClass("future");
+      } else if (zeroData == moment().hour()) {
+        zero.addClass("present");
+      }
+
       //Click event taking what is written in the textarea and setting it in local storage
       $(".saveBtn").click(function () {
         var timeBlock = $(this).parent().attr("id");
@@ -240,6 +384,8 @@
       })
 
       //Value functions getting the values from local storage to show in textarea even upon refresh until the text is altered
+      $("#sixam .plans").val(localStorage.getItem("sixam"));
+      $("#sevenam .plans").val(localStorage.getItem("sevenam"));
       $("#eightam .plans").val(localStorage.getItem("eightam"));
       $("#nineam .plans").val(localStorage.getItem("nineam"));
       $("#tenam .plans").val(localStorage.getItem("tenam"));
@@ -251,6 +397,12 @@
       $("#fourpm .plans").val(localStorage.getItem("fourpm"));
       $("#fivepm .plans").val(localStorage.getItem("fivepm"));
       $("#sixpm .plans").val(localStorage.getItem("sixpm"));
+      $("#sevenpm .plans").val(localStorage.getItem("sevenpm"));
+      $("#eightpm .plans").val(localStorage.getItem("eightpm"));
+      $("#ninepm .plans").val(localStorage.getItem("ninepm"));
+      $("#tenpm .plans").val(localStorage.getItem("tenpm"));
+      $("#elevenpm .plans").val(localStorage.getItem("elevenpm"));
+      $("#twelveam .plans").val(localStorage.getItem("twelveam"));
     });
   </script>
 </body>
